@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    networks: 
+      - pgNetwork
+    environment:
+      POSTGRES_PASSWORD: testpassword
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    # restart: always
+    networks: 
+      - pgNetwork
+    depends_on: 
+      - postgres
+    ports:
+      - 8080:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: test@local.com
+      PGADMIN_DEFAULT_PASSWORD: testpassword
+
+networks:
+  pgNetwork:
+    name: pg-network
