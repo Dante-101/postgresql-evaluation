@@ -10,3 +10,4 @@ Testing and evaluating postgresql. Has code from udemy's course, "Learn SQL Usin
 
 * To connect via `psql` after `docker-compose`, use 
   * `docker run -it --rm --network pg-network -e PGPASSWORD=testpassword postgres psql -h postgres -U postgres`
+
