@@ -10,6 +10,39 @@
             "port": 5432,
             "server": "localhost",
             "username": "postgres"
+        },
+        {
+            "database": "AdventureWorks",
+            "dialect": "PostgreSQL",
+            "isActive": false,
+            "isConnected": false,
+            "name": "local-AdventureWorks",
+            "password": "testpassword",
+            "port": 5432,
+            "server": "localhost",
+            "username": "postgres"
+        },
+        {
+            "database": "pagila",
+            "dialect": "PostgreSQL",
+            "isActive": false,
+            "isConnected": false,
+            "name": "local-pagila",
+            "password": "testpassword",
+            "port": 5432,
+            "server": "localhost",
+            "username": "postgres"
+        },
+        {
+            "database": "usda",
+            "dialect": "PostgreSQL",
+            "isActive": false,
+            "isConnected": false,
+            "name": "local-usda",
+            "password": "testpassword",
+            "port": 5432,
+            "server": "localhost",
+            "username": "postgres"
         }
     ]
 }

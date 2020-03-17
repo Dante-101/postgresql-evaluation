@@ -32,3 +32,11 @@ FROM suppliers;
 SELECT COUNT(DISTINCT productid)
 FROM order_details;
 
+-- operations on the fields
+SELECT customerid, shippeddate, orderdate, shippeddate - orderdate as ship_delay
+FROM orders;
+
+-- For the total amount
+-- SELECT SUM(unitprice * quantity) as price
+SELECT orderid, unitprice * quantity as price
+FROM order_details;
