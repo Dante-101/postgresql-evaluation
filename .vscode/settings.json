@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "northwind",
+            "dialect": "PostgreSQL",
+            "isActive": false,
+            "isConnected": false,
+            "name": "local-northwind",
+            "password": "testpassword",
+            "port": 5432,
+            "server": "localhost",
+            "username": "postgres"
+        }
+    ]
+}
