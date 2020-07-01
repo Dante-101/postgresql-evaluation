@@ -49,3 +49,49 @@ WHERE NOT EXISTS (
 )
 
 -- ANY
+SELECT companyname
+FROM customers
+WHERE customerid = ANY (
+    SELECT customerid
+    FROM orders
+    JOIN order_details USING (orderid)
+    WHERE quantity > 50
+)
+
+SELECT companyname
+FROM suppliers
+WHERE supplierid = ANY(
+    SELECT supplierid
+    FROM order_details
+    JOIN products USING (productid)
+    WHERE quantity = 1
+)
+
+-- ALL
+SELECT DISTINCT(productname)
+FROM products as p
+JOIN order_details as od USING(productid)
+WHERE (od.unitprice * od.quantity) > ALL (
+    SELECT AVG(unitprice * quantity)
+    FROM order_details
+    GROUP BY productid
+)
+
+SELECT DISTINCT(companyname)
+FROM customers as c
+JOIN orders as o USING(customerid)
+JOIN order_details as od USING(orderid)
+WHERE (od.quantity*od.unitprice) > ALL (
+    SELECT AVG(unitprice*quantity)
+    FROM order_details
+    JOIN orders USING(orderid)
+    GROUP BY customerid
+)
+
+-- IN
+SELECT companyname
+FROM customers
+WHERE country IN (
+    SELECT country
+    FROM suppliers
+) 
